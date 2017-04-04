@@ -1,3 +1,12 @@
+$scope.changeState = function () {
+    $state.go('where.ever.you.want.to.go', {stateParamKey: exampleParam});
+};
+
+<button ng-click="changeState()">Change State</button>
+
+
+
+
 ng-click 
 <a class="album-song-button" ng-show="song.playing" ng-click="album.songPlayer.pause(song)"><span class="ion-pause"></span></a>
 

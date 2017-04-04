@@ -13,6 +13,12 @@
              controller: 'HomeCtrl as home',
             templateUrl: '/templates/home.html'
          })
+   
+	    .state('active', {
+             url: '/',
+             controller: 'ActiveCtrl as active',
+            templateUrl: '/templates/active.html'
+         })
      
      }
     
