@@ -17,13 +17,13 @@
     };
 		
 	
-	function ModalInstanceCtrl(Room, $uibModalInstance, $uibModal) {
+	function ModalInstanceCtrl($uibModalInstance, $uibModal, Room) {
 				this.ok = function () {
-					$uibModalInstance.close(this);
+					$uibModalInstance.close();
 				};
 		
 				this.save= function(roomName) {
-					home.rooms.$add(roomName);
+					Room.addRoom(roomName);
 				}
 		  
 		  		this.cancel = function () {
@@ -37,5 +37,5 @@
      angular
          	.module('blocChat')
          	.controller('ModalCtrl', ['Room', '$uibModal', ModalCtrl])
-		.controller('ModalInstanceCtrl', ['Room','$uibModalInstance','$uibModal', ModalInstanceCtrl])
+		.controller('ModalInstanceCtrl', ['$uibModalInstance','$uibModal','Room', ModalInstanceCtrl])
  })();

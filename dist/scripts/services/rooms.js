@@ -1,14 +1,19 @@
 (function() {
-  function Room($firebaseArray, ModalInstanceCtrl) {
+  function Room($firebaseArray) {
     var ref = firebase.database().ref().child("rooms");
-    var rooms = $firebaseArray(ref);
-
-    return {
-      all: rooms
-    };
+    Room.rooms = $firebaseArray(ref);
+	  
+	  Room.addRoom = function(name) {
+            Room.rooms.$add(name);
+         };
+	  
+	  
+    return Room;
+//      all: rooms
+	 
   }
 
   angular
     .module('blocChat')
-    .factory('Room', ['$firebaseArray', 'ModalInstanceCtrl', Room]);
+    .factory('Room', ['$firebaseArray', Room]);
 })();
