@@ -1,14 +1,13 @@
 (function() {
-    function ModalCtrl(Room,$uibModal) {
-         
+	
+    function ModalCtrl(Room, $uibModal) {
 				
          
         this.open = function(){
-						console.log("does this work?")
           var modalInstance = $uibModal.open({
               ariaLabelledBy: 'modal-title',
               ariaDescribedBy: 'modal-body',
-              templateUrl: 'modal.html',
+              templateUrl: 'templates/modal.html',
               controller: 'ModalInstanceCtrl',
               controllerAs: '$ctrl',
 					});
@@ -17,16 +16,26 @@
         
     };
 		
-		function ModalInstanceCtrl() {
+	
+	function ModalInstanceCtrl(Room, $uibModalInstance, $uibModal) {
 				this.ok = function () {
-						$uibModalInstance.close("foo");
-					};
+					$uibModalInstance.close(this);
+				};
+		
+				this.save= function(roomName) {
+					home.rooms.$add(roomName);
+				}
+		  
+		  		this.cancel = function () {
+				  	$uibModalInstance.close();
+				};
+		 
 
-		}
+	}
     
  
      angular
-         .module('blocChat')
-         .controller('ModalCtrl', ['Room', '$uibModal', ModalCtrl])
-				 .controller('ModalInstanceCtrl', [ModalInstanceCtrl]);
+         	.module('blocChat')
+         	.controller('ModalCtrl', ['Room', '$uibModal', ModalCtrl])
+		.controller('ModalInstanceCtrl', ['Room','$uibModalInstance','$uibModal', ModalInstanceCtrl])
  })();
