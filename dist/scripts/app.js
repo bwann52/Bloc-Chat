@@ -13,12 +13,15 @@
              controller: 'HomeCtrl as home',
             templateUrl: '/templates/home.html'
          })
-   
-	    .state('active', {
-             url: '/',
-             controller: 'ActiveCtrl as active',
-            templateUrl: '/templates/active.html'
+	  
+		 //room_id url, when clicked url is triggered...
+		 .state('room', {
+             url: '/:room_id',
+             controller: 'HomeCtrl as home',
+            templateUrl: '/templates/home.html'
          })
+  
+  
      
      }
     

@@ -14,17 +14,18 @@
 
                 <div class = "room-list">
                     <ul ng-repeat="room in home.rooms">
-                        <li>{{room.$id}}</li>
+							  	<!-- make all the room in home.rooms into a clickable link room1 etc, which is called as room.$value -->
+							  <a href="/{{room.$id}}"><li>{{room.$value}}</li></a>
                     </ul>
                 </div>
 
         </div>
 			
-			<div class="col-md-4 room-message-section">
-				  <div ng-controller="ActiveCtrl as active">
-                            <p>{{roomID}}</p>
+			<div class="col-md-4 room-message-section" ng-controller = "HomeCtrl as home">
+				<ul ng-repeat= "message in home.messages">
+                            <p>{{message}}</p>
+					</ul>
 
-            </div>
 			</div>
   </div>
     
