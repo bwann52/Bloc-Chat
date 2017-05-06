@@ -21,9 +21,9 @@
 
         </div>
 			
-			<div class="col-md-4 room-message-section" ng-controller = "HomeCtrl as home">
+			<div class="col-md-4 room-message-section">
 				<ul ng-repeat= "message in home.messages">
-                            <p>{{message}}</p>
+                       <li>{{message.content}}</li>
 					</ul>
 
 			</div>

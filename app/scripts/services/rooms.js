@@ -8,10 +8,8 @@
          };
 	  
 	  
-	  
-	  
-    return Room;
 	 
+    return Room;
   }
 
   angular
