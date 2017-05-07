@@ -1,18 +1,12 @@
 (function() {
      function HomeCtrl(Room, $stateParams, Message) {
         this.rooms = Room.rooms;
-		  
-		  
-		  
-		  //default
 		  this.messages = Message.messages;
 		  
-//		  this.messages = Message.getByRoomId($stateParams.room_id);
+//		  messages refer to this.messages 
 		  console.log($stateParams.room_id);
+//		  console.log(messages);
 		  
-		  
-//currentRoom no longer necessary
-		 //this.currentRoom = $stateParams.room_id || "nothing" 
  
      }
  
