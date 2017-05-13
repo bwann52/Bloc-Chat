@@ -1,0 +1,23 @@
+<!-- Trigger the modal with a button note using $ctrl, which is the controller reference-->
+
+  <div class='modal-dialog' role='document'>
+	  <div class='content'>
+
+		  <div class='modal-header'>
+			  <h4>Set a username</h4>
+		  </div>
+
+		  <div class='modal-body'>
+		    <p>Enter username</p>
+		    <div class='user-name'>
+				 <!--	ng-model clarification, binds input as userName property-->
+		    <input type='textbox' placeholder='enter a user name here' ng-model='$ctrl.userName'>
+		    </div>
+		  </div>
+	  </div>
+
+	  <div class='modal-footer'>
+		  <button class='btn btn-success' ng-click='$ctrl.save($ctrl.userName); $ctrl.cancel()'>Okay</button>
+		  <button class='btn' ng-click='$ctrl.cancel()'>Cancel</button>
+	  </div>
+  </div>
