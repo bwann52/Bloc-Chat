@@ -4,13 +4,13 @@
 
         <div class="col-md-8 sidebar">
                 <h1>Bloc Chat</h1>
+			  <p>{{home.currentUser}} is logged in</p>
                 
             <div ng-controller="ModalCtrl as modal">
                             <button type="button" ng-click="modal.open()" class="btn btn-info btn-lg">Add Room</button>
 
             </div>
-
-            
+			  
 
                 <div class = "room-list">
                     <ul ng-repeat="room in home.rooms">
@@ -24,7 +24,12 @@
 			<div class="col-md-4 room-message-section">
 				<ul ng-repeat= "message in home.messages">
                        <li>{{message.content}}</li>
+						<!-- access click function in message						-->
+								
 					</ul>
+				
+				<input type="text" ng-model="home.newMessage" class="form-control" placeholder="type your message here">
+				<button type="button" ng-click="home.addMessage(home.newMessage)" class="btn btn-info btn-lg">New Message</button>
 
 			</div>
   </div>

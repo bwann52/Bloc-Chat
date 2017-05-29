@@ -4,18 +4,18 @@
 	  <div class='content'>
 
 		  <div class='modal-header'>
-			  <h4>Set a username</h4>
+			  <h4>Enter New Message</h4>
 		  </div>
 		  <div class='modal-body'>
-		    <p>Enter username</p>
-		    <div class='user-name'>
+		    <p>Enter message</p>
+		    <div class='new-message'>
 				 <!--	ng-model clarification, binds input as userName property-->
-		    <input type='textbox' placeholder='enter a user name here' ng-model='$ctrl2.userName'>
+		    <input type='textbox' placeholder='enter a message here' ng-model='$ctrlmsg.newMessage'>
 		    </div>
 		  </div>
 	  </div>
 
 	  <div class='modal-footer'>
-		  <button class='btn btn-success' ng-click='$ctrl2.setUserName()'>Set Username</button>
+		  <button class='btn btn-success' ng-click='$ctrlmsg.add()'>Set Username</button>
 	  </div>
   </div>

@@ -1,22 +1,37 @@
 (function() {
-  function Message($firebaseArray) {
+  function Message($firebaseArray, $cookies, $uibModal) {
+	 
+	 var ref = firebase.database().ref().child('messages');
+	 var messages = $firebaseArray(ref);
 	  
-	  this.getByRoomId = function(roomID) {
-		 return $firebaseArray(firebase.database().ref().child('messages').orderByChild('room_id').equalTo(roomID));
+	  var currentUser = $cookies.get('blocChatCurrentUser');
+	  
+	  // send a message, which is a new function
+	  
+	  this.addMessage = function(newMessage) {
+		  console.log(newMessage)
+		  messages.$add(newMessage);
 	  }
 	  
-//	  function getByRoomId () {
-//		  
-//		  var ref = firebase.database().ref("messages");
-//		  
-//		  return $firebaseArray(ref.orderByChild("room_id").equalTo($stateParams.room_id))
-//	  }
+	  this.getByRoomId = function(roomID) {
+		 if(roomID){
+		   return $firebaseArray(ref.orderByChild('room_id').equalTo(roomID));
+		 } else {
+		   return [];
+		 }
+	  }
+	 
 	  
+	 
+
+    
+	  
+	  //can I return Message if replace all this with Message?
 	  return this;
   
   }
 
   angular
     .module('blocChat')
-    .factory('Message', ['$firebaseArray', Message]);
+    .factory('Message', ['$firebaseArray','$cookies','$uibModal', Message]);
 })();
