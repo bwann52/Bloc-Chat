@@ -1,11 +1,9 @@
 (function() {
-  function Message($firebaseArray, $cookies, $uibModal) {
+  function Message($firebaseArray) {
 	 
 	  var ref = firebase.database().ref().child('messages');
 	  var messages = $firebaseArray(ref);
-	  
-	  var currentUser = $cookies.get('blocChatCurrentUser');
-	  
+	  	  
 	  // send a message, which is a new function
 	  
 	  this.addMessageObj = function(msgObj) {
@@ -31,5 +29,5 @@
 
   angular
     .module('blocChat')
-    .factory('Message', ['$firebaseArray','$cookies','$uibModal', Message]);
+    .factory('Message', ['$firebaseArray', Message]);
 })();
