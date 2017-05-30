@@ -3,10 +3,13 @@
         this.rooms = Room.rooms;
 		  this.messages = Message.getByRoomId($stateParams.room_id);
 		  this.currentUser = $cookies.get('blocChatCurrentUser');
-		  this.newMessage = "";
-		  this.addMessage = function(newMessage) {
-			  var msg = {content: newMessage}
-			  Message.addMessage(msg);
+//		  this.newMessage = "";
+		  
+		  this.createMessageObj = function(newMessage) {
+			  console.log(this.currentUser);
+			  var msgObj = {content: newMessage, room_id: $stateParams.room_id, sentAt: 'n/a' , username: this.currentUser}
+//			  console.log(msgObj)
+			  Message.addMessageObj(msgObj);
 		  }
 	  }
 	

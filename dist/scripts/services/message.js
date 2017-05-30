@@ -1,16 +1,15 @@
 (function() {
   function Message($firebaseArray, $cookies, $uibModal) {
 	 
-	 var ref = firebase.database().ref().child('messages');
-	 var messages = $firebaseArray(ref);
+	  var ref = firebase.database().ref().child('messages');
+	  var messages = $firebaseArray(ref);
 	  
 	  var currentUser = $cookies.get('blocChatCurrentUser');
 	  
 	  // send a message, which is a new function
 	  
-	  this.addMessage = function(newMessage) {
-		  console.log(newMessage)
-		  messages.$add(newMessage);
+	  this.addMessageObj = function(msgObj) {
+		  messages.$add(msgObj);
 	  }
 	  
 	  this.getByRoomId = function(roomID) {
@@ -21,7 +20,6 @@
 		 }
 	  }
 	 
-	  
 	 
 
     
